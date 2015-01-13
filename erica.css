@@ -331,12 +331,17 @@ p:first-of-type {
 }
   
 @media only screen and (max-width: 720px) {
+  
   body .header a:first-of-type {
-    position: relative;
-  }
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    margin-left: -170px;
+}
   body .header {
     height: auto;
     text-align: center;
+    padding-top: 90px;
   }
   body .header a {
     padding: 30px 10px 30px 10px;
@@ -366,8 +371,6 @@ p:first-of-type {
   .footer {
     text-align: center;
   }
-  
-  
   .project .electric-objects {
     width: 100%;
   }
