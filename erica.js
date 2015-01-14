@@ -12,6 +12,55 @@ $( document ).ready(function() {
     $("body").addClass("chrome");
   }
   
+
+  if(window.location.href.indexOf("localhost") > 0) {
+    tinymce.init({
+        selector: "h1,h2,div.editable",
+        inline: true,
+        plugins: [ "code link template" ],
+        toolbar: "bold italic styleselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code",
+        menubar: false,
+        setup: function(editor) {
+          editor.on('change', function(e) {
+              var new_value = tinyMCE.activeEditor.getContent({format : 'raw'});
+              $.ajax({
+                type: "POST",
+                url: "../scripts/index.php",
+                data: {"id":parseInt(e.target.id), "key":$("#"+e.target.id).attr("type"), "v":JSON.stringify(new_value)},
+                success: function(e) {
+                
+                }
+              });
+          });
+        }
+    });
+    tinymce.init({
+        selector: ".element.editable",
+        inline: true,
+        menubar: false,
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu code"
+        ],
+        toolbar: "bold italic styleselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code",
+        setup: function(editor) {
+          editor.on('change', function(e) {
+              var new_value = tinyMCE.activeEditor.getContent({format : 'raw'});
+              $.ajax({
+                type: "POST",
+                url: "../scripts/index.php",
+                data: {"id":parseInt(e.target.id), "key":$("#"+e.target.id).attr("type"), "v":JSON.stringify(new_value)},
+                success: function(e) {
+  
+                }
+              });
+            
+          });
+        }
+    });
+  }
+  
   
   // $(".element").click(function(e) {
   //   var image_container;

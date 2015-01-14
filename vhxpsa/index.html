@@ -38,7 +38,7 @@
         
           <a href="http://peprally.co/work/">WORK</a>
         
-          <a href="http://peprally.co/studio/">STUDIO</a>
+          <a href="http://peprally.co/about/">ABOUT</a>
         
           <a href="http://peprally.co/blog/">BLOG</a>
         
@@ -186,7 +186,7 @@
     <div id="navigation">
       <div class="content">
         
-          <div class="piece"><a href="http://peprally.co/montage-2015/"><img src="http://patrickmoberg.s3.amazonaws.com/1" style="max-width: 100%;" /><div class="text">Design & Animation Direction Montage 2015</div></a></div>
+          <div class="piece"><a href="http://peprally.co/montage-2015/"><img src="http://patrickmoberg.s3.amazonaws.com/1" style="max-width: 100%;" /><div class="text">Design &amp; Animation Direction Montage 2015</div></a></div>
         
           <div class="piece"><a href="http://peprally.co/rbma-moroder/"><img src="http://patrickmoberg.s3.amazonaws.com/2.jpg" style="max-width: 100%;" /><div class="text">Red Bull Music Academy: Giorgio Moroder</div></a></div>
         
@@ -242,56 +242,6 @@
     <img src="http://patrickmoberg.s3.amazonaws.com/montage_reverse.jpg" style="height: 0px; position: absolute;" />
     
     <script type="text/javascript" src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
-    <script type="text/javascript">
-      var user = "erica";
-      if(window.location.href.indexOf("localhost") > -1) {
-        tinymce.init({
-            selector: "h1,h2,div.editable",
-            inline: true,
-            plugins: [ "code link template" ],
-            toolbar: "bold italic styleselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code",
-            menubar: false,
-            setup: function(editor) {
-              editor.on('change', function(e) {
-                  var new_value = tinyMCE.activeEditor.getContent({format : 'raw'});
-                  $.ajax({
-                    type: "POST",
-                    url: "../scripts/index.php?user=" + user,
-                    data: {"id":parseInt(e.target.id), "key":$("#"+e.target.id).attr("type"), "v":JSON.stringify(new_value)},
-                    success: function(e) {
-                    
-                    }
-                  });
-              });
-            }
-        });
-        tinymce.init({
-            selector: ".element.editable",
-            inline: true,
-            menubar: false,
-            plugins: [
-                "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu code"
-            ],
-            toolbar: "bold italic styleselect | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code",
-            setup: function(editor) {
-              editor.on('change', function(e) {
-                  var new_value = tinyMCE.activeEditor.getContent({format : 'raw'});
-                  $.ajax({
-                    type: "POST",
-                    url: "../scripts/index.php?user=erica",
-                    data: {"id":parseInt(e.target.id), "key":$("#"+e.target.id).attr("type"), "v":JSON.stringify(new_value)},
-                    success: function(e) {
-      
-                    }
-                  });
-                
-              });
-            }
-        });
-      }
-    </script>
     
   </body>
 </html>
