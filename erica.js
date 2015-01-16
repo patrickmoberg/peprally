@@ -1,3 +1,7 @@
+$( window ).resize(function() {
+  $("iframe").css("height", $("iframe").width() * (1080/1920) + "px");
+});
+
 $( document ).ready(function() {
   if($(".element").length==0) {
     $(".project").remove();
@@ -12,7 +16,8 @@ $( document ).ready(function() {
     $("body").addClass("chrome");
   }
   
-
+  $("iframe").css("height", $("iframe").width() * (1080/1920) + "px");
+  
   if(window.location.href.indexOf("localhost") > 0) {
     tinymce.init({
         selector: "h1,h2,div.editable",
