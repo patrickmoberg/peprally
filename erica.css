@@ -44,7 +44,7 @@ body .header {
 }
 body .header a {
   text-decoration: none;
-  padding: 32px 20px;
+  padding: 40px 20px;
   display: inline-block;
 }
 body .header a.current {
