@@ -1,6 +1,11 @@
 $( window ).resize(function() {
-  $("iframe").css("height", $("iframe").width() * (1080/1920) + "px");
+  checkVideos();
 });
+
+function checkVideos() {
+  $("iframe").css("height", $("iframe").width() * (1080/1920) + "px");
+  $("#blogfeed iframe").css("height", 500 * (1080/1920) + "px");
+}
 
 $( document ).ready(function() {
   if($(".element").length==0) {
@@ -16,7 +21,7 @@ $( document ).ready(function() {
     $("body").addClass("chrome");
   }
   
-  $("iframe").css("height", $("iframe").width() * (1080/1920) + "px");
+  checkVideos();
   
   if(window.location.href.indexOf("localhost") > 0) {
     tinymce.init({

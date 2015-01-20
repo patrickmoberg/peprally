@@ -18,6 +18,15 @@ $(tumblr_api_read["posts"]).each(function(i,obj) {
     $("#blogfeed").append(post);
   }
   
+  if(obj["type"]=="video") {
+    // console.log(obj);
+    var div = $("<div></div>").html(obj["video-player-500"]);
+    post.append(div);
+    var caption = $("<div>").addClass("video-caption").html(obj["video-caption"]);
+    post.append(url).append(caption);
+    $("#blogfeed").append(post);
+  }
+  
 });
 
 $(".loadmoreposts").click(function(e) {
