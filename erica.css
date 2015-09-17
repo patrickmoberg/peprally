@@ -82,6 +82,7 @@ body .footer {
   color: #22262a;
   background: rgba(235,229,224,255);
   position: relative;
+  margin-top: 60px;
 }
 body .footer a {
   text-decoration:none;
